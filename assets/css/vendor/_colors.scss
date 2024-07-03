@@ -27,3 +27,6 @@ $dark-purple: #120D34;
 
 
 // gradients
+
+$dark-to-light-purple: linear-gradient(180deg, #291a7a 0%, #3d2aa4 100%);
+$light-to-dark-purple: linear-gradient(180deg, #3d2aa4 0%, #291a7a 100%);
