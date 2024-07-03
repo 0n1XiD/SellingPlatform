@@ -1,0 +1,29 @@
+.swipper-custom{
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    background: var(--dark-bg);
+    justify-content: space-between;
+    max-width: 600px;
+    height: 30px;
+    user-select: none;
+    &__swipe{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+        color: var(--text-inactive-color);
+        .swipe-icon{
+            margin-right: 10px;
+        }
+        &.active_swipe{
+            background: var(--additional-box);
+            border: 1px solid var(--blue, #1C6090);
+            border-radius: 3px;
+            color: var(--text-color);
+        }
+    }
+}

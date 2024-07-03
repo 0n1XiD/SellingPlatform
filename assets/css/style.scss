@@ -1,0 +1,53 @@
+    // Vendor
+@import "./vendor/_colors.scss";
+@import "./vendor/_fonts.scss";
+@import "./vendor/_reset.scss";
+
+* {
+    scroll-behavior: smooth;
+}
+
+* ::-webkit-scrollbar {
+    display: none;
+    width: 6px;
+    background: rgb(255, 255, 255);
+}
+
+* ::-webkit-scrollbar-thumb {
+    background: var(--thumb-bg);
+    border-radius: 38px;
+}
+
+html,
+body {
+    background: var(--bg-color);
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+.default-wrapper {
+    height: 100vh;
+    width: 100vw;
+}
+
+@media (max-width: 1440px) {
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+}

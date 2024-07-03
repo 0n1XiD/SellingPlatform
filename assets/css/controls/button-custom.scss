@@ -1,0 +1,108 @@
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    border: none;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    transition: all 0.1s ease-in;
+    width: fit-content;
+    height: 30px;
+    &:active{
+        opacity: 0.6;
+        box-shadow: none;
+    }
+    &.border{
+        background-color: transparent;
+    }
+    &__icon{
+        margin-right: 5px;
+    }
+    // Colors
+    &_dark_purple{
+        border-radius: 5px;
+        border: 1px solid #61259C;
+        background: rgba(97, 37, 156, 0.90);
+        &:hover {
+            box-shadow: 0 0 8px 0 rgba(97, 37, 156, 0.50) inset, 0 0 8px 3px rgba(97, 37, 156, 0.50);
+        }
+        &.default{
+            color: #FFFFFF;
+        }
+        &.border{
+            color: #7444A5;
+            border: 1px solid #7444A5;
+        }
+    }
+    &_dark_green{
+        border-radius: 5px;
+        border: 1px solid #0D412B;
+        background: rgba(13, 65, 43, 0.90);
+        &:hover {
+            box-shadow: 0 0 8px 0 rgba(13, 65, 43, 0.50) inset, 0 0 8px 3px rgba(13, 65, 43, 0.50);
+        }
+        &.default{
+            color: #FFFFFF;
+        }
+        &.border{
+            color: #2C7657;
+            border: 1px solid #2C7657;
+        }
+    }
+    &_dark_red{
+        border-radius: 5px;
+        border: 1px solid #561414;
+        background: rgba(86, 20, 20, 0.90);
+        &:hover {
+            box-shadow: 0 0 8px 0 rgba(13, 65, 43, 0.50) inset, 0 0 8px 3px rgba(13, 65, 43, 0.50);
+        }
+        &.default{
+            color: #FFFFFF;
+        }
+        &.border{
+            color: #853333;
+            border: 1px solid #853333;
+        }
+    }
+    &_dark_blue{
+        border-radius: 5px;
+        border: 1px solid #113245;
+        background: rgba(17, 50, 69, 0.90);
+        &:hover {
+            box-shadow: 0 0 8px 0 rgba(17, 50, 69, 0.50) inset, 0 0 8px 3px rgba(17, 50, 69, 0.50);
+        }
+        &.default{
+            color: #FFFFFF;
+            line-height: 18px;
+            font-size: var(--font-size-xs);
+        }
+        &.border{
+            color: #2C5D79;
+            border: 1px solid #2C5D79;
+        }
+    }
+    &_light_gray{
+        border-radius: 2px;
+        background: var(--additional-box);
+        font-weight: var(--font-weight-regular);
+        &:hover {
+            box-shadow: 0 0 8px 0 rgba(17, 50, 69, 0.50) inset, 0 0 8px 3px rgba(17, 50, 69, 0.50);
+        }
+        &.default{
+            color: #FFFFFF;
+            line-height: 18px;
+            font-size: var(--font-size-xs);
+        }
+        &.border{
+            color: #FFFFFF;
+            border: 2px solid var(--additional-box);
+            font-weight: var(--font-weight-regular);
+            font-size: var(--font-size-xs);
+        }
+    }
+}
