@@ -1,8 +1,10 @@
 @import '../vendor/colors.scss';
 
-:root.light-theme {
+:root {
     // Text
-    --text-color: #{$white};
+    --text-color: #{$black};
+    --text-color-primary: #{$blue-two};
+    --text-color-alternative: #{$gray};
     --text-inactive-color: #{$gray-two};
     --link: #{$light-blue};
 
@@ -31,13 +33,13 @@
     --line-height-xxl: 43px;
     --line-height-extra-xxl: 48px;
 
-    --font-family: 'lato', sans-serif;
+    --font-family: 'Montserrat', sans-serif;
 
     // Background
     --bg-color: #{$white};
-    --box-color: #{$dark-blue};
+    --box-color: #{$purple};
     --box-color-light: #{$dark-blue-three};
-    --box-color-dark: #{$dark-blue-two};
+    --box-color-dark: #{$dark-purple};
 
 
     // Additional elemets
