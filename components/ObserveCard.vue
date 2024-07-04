@@ -39,12 +39,18 @@
                 </div>
             </div>
             <div class="observe-card__footer">
-                <div class="more">
+                <nuxt-link
+                    to="#pricing"
+                    class="more"
+                >
                     Подробнее
-                </div>
-                <div class="contact-us">
+                </nuxt-link>
+                <nuxt-link
+                    to="#contacts"
+                    class="contact-us"
+                >
                     Связаться с нами
-                </div>
+                </nuxt-link>
             </div>
         </div>
     </div>
@@ -62,10 +68,11 @@ defineProps({
 <style scoped lang="scss">
     .observe-card {
         background: var(--box-color);
-        width: 270px;
-        height: 300px;
+        width: 100%;
+        height: 100%;
         border-radius: 6px;
         box-shadow: 0 4px 12px 0 rgba(28, 28, 32, 0.04);
+        transition: 0.3s;
         &__wrapper {
             padding: 16px;
         }
@@ -127,5 +134,15 @@ defineProps({
                 text-decoration: underline;
             }
         }
+        &:hover {
+            scale: 1.05;
+        }
     }
+@media (max-width: 1440px){
+
+}
+
+@media (max-width: 768px){
+
+}
 </style>

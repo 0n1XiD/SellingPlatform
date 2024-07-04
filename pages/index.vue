@@ -304,7 +304,6 @@ const additionalBenefits = ref<Array[String]>(
 
 const getSwipe = ($event: any) => {
   addition.value = !$event
-  console.log(addition)
 }
 </script>
 
@@ -574,4 +573,69 @@ const getSwipe = ($event: any) => {
             }
         }
     }
+
+@media (max-width: 1440px){
+    .landing-page {
+        &__main-frame {
+            .observe-cards {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+        }
+        &__choice-learn {
+            .headlines {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
+                gap: 16px;
+                justify-items: center;
+                &__line {
+                    display: none;
+                }
+                &__item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    :nth-child(2), :nth-child(3) {
+                        grid-row: 2;
+                    }
+                }
+            }
+        }
+        &__premium-packages {
+            .title {
+                text-align: center;
+            }
+        }
+        &__reviews {
+            .title {
+                text-align: center;
+            }
+            .content {
+                flex-direction: column;
+                &__most-helpful {
+                    .text {
+                        width: calc(100% - 64px);
+                    }
+                }
+                &__others {
+                    padding-right: 0px;
+                    .slider {
+                        width: 100%;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+        &__contacts {
+            flex-direction: column;
+            gap: 60px;
+            .send-message {
+                margin-left: 35px;
+            }
+        }
+    }
+}
 </style>

@@ -38,8 +38,8 @@ defineProps({
     .review-card {
         border-radius: 5px;
         background: var(--box-color);
-        width: 453px;
-        height: 180px;
+        width: 100%;
+        height: 100%;
         font-size: 14px;
         line-height: 143%;
         transition: 0.2s;
@@ -83,4 +83,9 @@ defineProps({
             scale: 1.05;
         }
     }
+@media (max-width: 1440px){
+    .review-card {
+        
+    }
+}
 </style>
