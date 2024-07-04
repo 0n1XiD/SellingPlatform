@@ -33,7 +33,7 @@
         </section>
         <section class="landing-page__choice-learn">
             <h1 class="title">
-                Широкий выбор курсов и персонализированное обучение
+                Широкий выбор курсов <br> и персонализированное обучение
             </h1>
             <div class="headlines">
                 <div class="headlines__item">
@@ -152,6 +152,72 @@
                 </div>
             </div>
         </section>
+        <section class="landing-page__reviews">
+            <h1 class="title">
+                Что о нас говорят люди
+            </h1>
+            <div class="content">
+                <div class="content__most-helpful">
+                    <div class="text">
+                        “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ex ea commodo consequat.”
+                    </div>
+                    <div class="explore">
+                        Посмотреть другие отзывы
+                    </div>
+                </div>
+                <div class="content__others">
+                    <div class="slider">
+                        <svg-icon
+                            class="slider__left-arrow"
+                            icon="ArrowButton"
+                            width="30"
+                            heigth="30"
+                        />
+                        <div class="slider__list">
+                            <review-card />
+                            <review-card
+                                topic="Другой отзыв на платформу"
+                                :date="new Date(`05/05/2025`)"
+                                name="Me"
+                            />
+                        </div>
+                        <svg-icon
+                            class="slider__right-arrow"
+                            icon="ArrowButton"
+                            width="30"
+                            heigth="30"
+                        />
+                    </div>
+                    <div class="additional">
+                        <div class="additional__pages">
+                            <div class="page page_active" />
+                            <div class="page" />
+                            <div class="page" />
+                        </div>
+                        <div class="additional__overall">
+                            Рейтинг 5 / 5 на основании 5 отзывов.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="landing-page__pricing">
+            <h1 class="title">
+                Цены
+            </h1>
+            <h2 class="subtitle">
+                Мы предлагаем набор тарифных планов с различными параметрами.
+                Выберите тарифный план, который лучше всего соответствует вашим потребностям.
+                Помимо основных пакетов вы можете просмотреть наши дополнительные услуги
+            </h2>
+            <swipper-custom
+                class="switcher"
+                :left-swipe="{name: 'Основные пакеты'}"
+                :right-swipe="{name: 'Дополнительные пакеты'}"
+            />
+        </section>
     </div>
 </template>
 
@@ -267,6 +333,107 @@
                         color: var(--text-color-alternative);
                     }
                 }
+            }
+        }
+        &__reviews {
+            .title {
+                color: var(--text-color-link);
+                font-weight: 600;
+                font-size: 36px;
+                line-height: 122%;
+            }
+            .content {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 64px;
+                &__most-helpful {
+                    color: var(--text-color-link);
+                    .text {
+                        margin-bottom: 16px;
+                        width: 489px;
+                        background: #434396;
+                        border-radius: 4px;
+                        padding: 32px;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 140%;
+                    }
+                    .explore {
+                        text-align: right;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 150%;
+                        text-decoration: underline;
+                    }
+                }
+                &__others {
+                    padding-right: 85px;
+                    .slider {
+                        margin-bottom: 24px;
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                        &__left-arrow {
+                            cursor: pointer;
+                        }
+                        &__right-arrow {
+                            cursor: pointer;
+                            rotate: 180deg;
+                        }
+                        &__list {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 20px;
+                        }
+                    }
+                    .additional {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 0 50px 0 50px;
+                        &__pages {
+                            display: flex;
+                            gap: 7px;
+                            .page {
+                                width: 8px;
+                                height: 8px;
+                                background: var(--box-color);
+                                border-radius: 100%;
+                                &_active {
+                                    background: var(--success);
+                                }
+                            }
+                        }
+                        &__overall {
+                            color: var(--text-color-link);
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 143%;
+                        }
+                    }
+                }
+            }
+        }
+        &__pricing {
+            background: var(--box-color);
+            .title {
+                margin-bottom: 24px;
+                text-align: center;
+                font-weight: 700;
+                font-size: 36px;
+                line-height: 122%;
+            }
+            .subtitle {
+                margin-bottom: 24px;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 150%;
+                text-align: center;
+            }
+            .switcher {
+                display: flex;
+                align-items: center;
+                margin: auto;
             }
         }
     }
