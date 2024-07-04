@@ -5,13 +5,12 @@
 }
 
 * ::-webkit-scrollbar {
-    display: none;
     width: 6px;
     background: rgb(255, 255, 255);
 }
 
 * ::-webkit-scrollbar-thumb {
-    background: var(--thumb-bg);
+    background: #000000;
     border-radius: 38px;
 }
 

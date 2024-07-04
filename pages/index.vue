@@ -216,10 +216,54 @@
                 class="switcher"
                 :left-swipe="{name: 'Основные пакеты'}"
                 :right-swipe="{name: 'Дополнительные пакеты'}"
+                @swipe="getSwipe"
             />
+            <div
+                v-if="!addition"
+                class="cards"
+            >
+                <pricing-card :benefits="benefits" />
+                <pricing-card :benefits="benefits" />
+                <pricing-card :benefits="benefits" />
+                <pricing-card :benefits="benefits" />
+            </div>
+            <div
+                v-else
+                class="cards"
+            >
+                <pricing-card :benefits="additionalBenefits" />
+                <pricing-card :benefits="additionalBenefits" />
+                <pricing-card :benefits="additionalBenefits" />
+                <pricing-card :benefits="additionalBenefits" />
+                <pricing-card :benefits="additionalBenefits" />
+            </div>
         </section>
     </div>
 </template>
+
+<script setup lang="ts">
+const addition = ref<Boolean>(false)
+const benefits = ref<Array[String]>(
+  [
+    'Доступ к более чем 50 курсам',
+    'Доступ к более чем 50 курсам',
+    'Доступ к более чем 50 курсам',
+    'Доступ к более чем 50 курсам'
+  ]
+)
+
+const additionalBenefits = ref<Array[String]>(
+  [
+    'Доступ к материалам',
+    'Пробные экзамены'
+  ]
+)
+
+const getSwipe = ($event: any) => {
+  addition.value = !$event
+  console.log(addition)
+}
+</script>
 
 <style scoped lang="scss">
     .landing-page {
@@ -415,6 +459,8 @@
             }
         }
         &__pricing {
+            padding-left: 48px;
+            padding-right: 48px;
             background: var(--box-color);
             .title {
                 margin-bottom: 24px;
@@ -424,6 +470,7 @@
                 line-height: 122%;
             }
             .subtitle {
+                padding: 0 32px;
                 margin-bottom: 24px;
                 font-weight: 400;
                 font-size: 16px;
@@ -434,6 +481,13 @@
                 display: flex;
                 align-items: center;
                 margin: auto;
+            }
+            .cards {
+                margin-top: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 16px;
             }
         }
     }

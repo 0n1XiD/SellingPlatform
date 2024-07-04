@@ -54,7 +54,8 @@ const props = defineProps({
 
   // Button Colors
   white: { type: Boolean, default: false },
-  green: { type: Boolean, default: false }
+  green: { type: Boolean, default: false },
+  purple: { type: Boolean, default: false }
 })
 
 const setType = computed(() => {
@@ -71,7 +72,9 @@ const setColor = computed(() => {
     ? 'white'
     : props.green
       ? 'green'
-      : 'white'
+      : props.purple
+        ? 'purple'
+        : 'white'
   return 'button_' + typeButton
 })
 

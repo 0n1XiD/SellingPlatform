@@ -33,4 +33,9 @@
         background: var(--success);
         color: var(--text-color-link);
     }
+    &_purple {
+        width: 100% !important;
+        background: var(--text-color-primary);
+        color: var(--text-color-link);
+    }
 }
