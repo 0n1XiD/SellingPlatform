@@ -1,27 +1,21 @@
 <template>
     <div class="landing-page">
         <section class="landing-page__main-frame">
-            <div class="observe-cards">
-                <observe-card
-                    icon="Base"
-                    first-benefit="Доступ к более чем 50 курсам"
-                    second-benefit="Сертификаты о завершении курсов"
-                />
-                <observe-card
-                    icon="Prod"
-                    first-benefit="Доступ к более чем 150 курсам"
-                    second-benefit="Загружаемые материалы курсов"
-                />
-                <observe-card
-                    icon="Profi"
-                    first-benefit="Доступ ко всем курсам (более 300)"
-                    second-benefit="Индивидуальные сессии наставничества"
-                />
-                <observe-card
-                    icon="Corpo"
-                    first-benefit="Доступ ко всем курсам для всей команды"
-                    second-benefit="Индивидуальные тренинги и выделенный менеджер"
-                />
+            <div
+                class="observe-cards"
+            >
+                <div
+                    v-for="card in observeCards"
+                    :key="`card-${card.id}`"
+                    class="card"
+                >
+                    <observe-card
+                        :icon="card.icon"
+                        :name="card.name"
+                        :price="card.price"
+                        :benefits="card.benefits"
+                    />
+                </div>
             </div>
             <div class="on-touch">
                 <div class="on-touch__info">
@@ -253,8 +247,8 @@
                 class="cards"
             >
                 <div
-                    v-for="(card, cardIndex) in pricingCards"
-                    :key="`card-${cardIndex}`"
+                    v-for="card in pricingCards"
+                    :key="`card-${card.id}`"
                     class="cards__card"
                 >
                     <pricing-card
@@ -271,8 +265,8 @@
                 class="cards"
             >
                 <div
-                    v-for="(card, cardIndex) in additionalPricingCards"
-                    :key="`card-${cardIndex}`"
+                    v-for="card in additionalPricingCards"
+                    :key="`card-${card.id}`"
                     class="cards__card"
                 >
                     <pricing-card
@@ -326,8 +320,60 @@
 
 <script setup lang="ts">
 const addition = ref<Boolean>(false)
-const pricingCards = ref<any>([
+
+export interface SubscriptionPackage {
+  id: number;
+  name: string;
+  icon: string;
+  price: string;
+  benefits: string[];
+}
+
+const observeCards = ref<Array<SubscriptionPackage>>([
   {
+    id: 1,
+    name: 'Базовый',
+    icon: 'Base',
+    price: '1000₽ / мес',
+    benefits: [
+      'Доступ к более чем 50 курсам',
+      'Сертификаты о завершении курсов'
+    ]
+  },
+  {
+    id: 2,
+    name: 'Продвинутый',
+    icon: 'Prod',
+    price: '2500₽ / мес',
+    benefits: [
+      'Доступ к более чем 150 курсам',
+      'Загружаемые материалы курсов'
+    ]
+  },
+  {
+    id: 3,
+    name: 'Профессиональный',
+    icon: 'Profi',
+    price: '3500₽ / мес',
+    benefits: [
+      'Доступ ко всем курсам (более 300)',
+      'Индивидуальные сессии наставничества'
+    ]
+  },
+  {
+    id: 4,
+    name: 'Корпоративный',
+    icon: 'Corpo',
+    price: 'Индивидуальная цена',
+    benefits: [
+      'Доступ ко всем курсам для всей команды',
+      'Индивидуальные тренинги и выделенный менеджер'
+    ]
+  }
+])
+const pricingCards = ref<Array<SubscriptionPackage>>([
+  {
+    id: 1,
     name: 'Базовый',
     icon: 'Rocket',
     price: '1000₽ / мес',
@@ -340,6 +386,7 @@ const pricingCards = ref<any>([
     ]
   },
   {
+    id: 2,
     name: 'Продвинутый',
     icon: 'Quinn',
     price: '2500₽ / мес',
@@ -352,6 +399,7 @@ const pricingCards = ref<any>([
     ]
   },
   {
+    id: 3,
     name: 'Профессиональный',
     icon: 'Plus',
     price: '3500₽ / мес',
@@ -364,6 +412,7 @@ const pricingCards = ref<any>([
     ]
   },
   {
+    id: 4,
     name: 'Корпоративный',
     icon: 'HighVolume',
     price: 'до 15000₽ / мес',
@@ -377,8 +426,9 @@ const pricingCards = ref<any>([
   }
 ])
 
-const additionalPricingCards = ref<any>([
+const additionalPricingCards = ref<Array<SubscriptionPackage>>([
   {
+    id: 1,
     name: 'Изучение языков',
     icon: 'Rocket',
     price: '1500₽ / мес',
@@ -388,6 +438,7 @@ const additionalPricingCards = ref<any>([
     ]
   },
   {
+    id: 2,
     name: 'Подготовка к экзаменам',
     icon: 'Quinn',
     price: '1500₽ / мес',
@@ -397,6 +448,7 @@ const additionalPricingCards = ref<any>([
     ]
   },
   {
+    id: 3,
     name: 'Оценка навыков',
     icon: 'Plus',
     price: '1500₽ / мес',
@@ -407,6 +459,7 @@ const additionalPricingCards = ref<any>([
     ]
   },
   {
+    id: 4,
     name: 'Карьерная поддержка',
     icon: 'HighVolume',
     price: '1500₽ / мес',
@@ -416,6 +469,7 @@ const additionalPricingCards = ref<any>([
     ]
   },
   {
+    id: 5,
     name: 'Создание контента',
     icon: 'Plus',
     price: '1500₽ / мес',
@@ -438,8 +492,9 @@ const getSwipe = ($event: any) => {
             padding: 28px 119px 80px 134px;
             .observe-cards {
                 margin-bottom: 60px;
-                display: flex;
-                gap: 60px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
             }
             .on-touch {
                 display: flex;
@@ -1003,11 +1058,17 @@ const getSwipe = ($event: any) => {
                 }
             }
             .send-message {
+                width: 80%;
                 &__sender {
-                    width: 105%;
-                    gap: 0;
+                    flex-direction: column;
+                    align-items: start;
+                    width: 100%;
+                    gap: 12px;
                     .name {
-                        margin-right: 12px;
+                        width: 100%;
+                    }
+                    .email {
+                        width: 100%;
                     }
                 }
             }

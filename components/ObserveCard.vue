@@ -15,18 +15,11 @@
                 {{ price }}
             </div>
             <div class="observe-card__benefits">
-                <div class="item">
-                    <svg-icon
-                        class="item__logo"
-                        icon="Mobile"
-                        width="18"
-                        height="18"
-                    />
-                    <div class="item__description">
-                        {{ firstBenefit }}
-                    </div>
-                </div>
-                <div class="item">
+                <div
+                    v-for="(benefit, benefitIndex) in benefits"
+                    :key="`benefit-${benefitIndex}`"
+                    class="item"
+                >
                     <svg-icon
                         class="item__logo"
                         icon="Dev"
@@ -34,7 +27,7 @@
                         height="18"
                     />
                     <div class="item__description">
-                        {{ secondBenefit }}
+                        {{ benefit }}
                     </div>
                 </div>
             </div>
@@ -61,8 +54,7 @@ defineProps({
   icon: { type: String, default: 'Base' },
   name: { type: String, default: 'Базовый пакет' },
   price: { type: String, default: '1000₽ / мес' },
-  firstBenefit: { type: String, default: 'Доступ к более чем 50 курсам' },
-  secondBenefit: { type: String, default: 'Сертификаты о завершении курсов' }
+  benefits: { type: Array[String], default: [] }
 })
 </script>
 
@@ -76,6 +68,9 @@ defineProps({
         transition: 0.3s;
         &__wrapper {
             padding: 16px;
+            height: calc(100% - 32px);
+            display: flex;
+            flex-direction: column;
         }
         &__header {
             margin-bottom: 15px;
@@ -115,6 +110,7 @@ defineProps({
             }
         }
         &__footer {
+            flex: 1;
             padding-top: 12px;
             display: flex;
             align-items: center;
@@ -146,6 +142,21 @@ defineProps({
             .contact-us {
                 text-align: right;
             }
+        }
+    }
+}
+
+@media (max-width: 576px){
+    .observe-card {
+        &__header {
+            flex-direction: column;
+            gap: 15px;
+            .name {
+                margin-left: 0;
+            }
+        }
+        &__price {
+            text-align: center;
         }
     }
 }

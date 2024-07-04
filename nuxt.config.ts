@@ -17,14 +17,7 @@ export default defineNuxtConfig({
     }
   },
   typescript: {
-    typeCheck: false,
-    tsConfig: {
-      compilerOptions: {
-        experimentalDecorators: true,
-        emitDecoratorMetadata: true,
-        esModuleInterop: true
-      }
-    }
+    typeCheck: false
   },
   modules: [
     '@nuxtjs/eslint-module'
@@ -52,6 +45,6 @@ export default defineNuxtConfig({
     { global: true, path: '~/components', pathPrefix: false }
   ],
   pages: true,
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   compatibilityDate: '2024-07-03'
 })
