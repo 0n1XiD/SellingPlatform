@@ -152,7 +152,10 @@
                 </div>
             </div>
         </section>
-        <section class="landing-page__reviews">
+        <section
+            id="reviews"
+            class="landing-page__reviews"
+        >
             <h1 class="title">
                 Что о нас говорят люди
             </h1>
@@ -203,7 +206,10 @@
                 </div>
             </div>
         </section>
-        <section class="landing-page__pricing">
+        <section
+            id="pricing"
+            class="landing-page__pricing"
+        >
             <h1 class="title">
                 Цены
             </h1>
@@ -237,6 +243,43 @@
                 <pricing-card :benefits="additionalBenefits" />
                 <pricing-card :benefits="additionalBenefits" />
             </div>
+        </section>
+        <section
+            id="contacts"
+            class="landing-page__contacts"
+        >
+            <div class="info">
+                <div class="info__title">
+                    🤙🏼 Оставайтесь на связи
+                </div>
+                <div class="info__description">
+                    У вас остались вопросы? Свяжитесь с нашими специалистами, чтобы узнать, чем мы можем помочь.
+                </div>
+            </div>
+            <form
+                onsubmit=""
+                class="send-message"
+            >
+                <div class="send-message__sender">
+                    <div class="name">
+                        <input-custom title="Имя" />
+                    </div>
+                    <div class="email">
+                        <input-custom title="E-mail" />
+                    </div>
+                </div>
+                <div class="send-message__body">
+                    <textarea-custom title="Ваше сообщение" />
+                </div>
+                <button-custom
+                    type="submit"
+                    purple
+                    width="241"
+                    height="56"
+                >
+                    Отправить
+                </button-custom>
+            </form>
         </section>
     </div>
 </template>
@@ -488,6 +531,46 @@ const getSwipe = ($event: any) => {
                 align-items: center;
                 justify-content: center;
                 gap: 16px;
+            }
+        }
+        &__contacts {
+            background: var(--bg-color-dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .info {
+                color: var(--text-color-link);
+                &__title {
+                    margin-bottom: 16px;
+                    font-weight: 700;
+                    font-size: 40px;
+                    line-height: 120%;
+                }
+                &__description {
+                    max-width: 550px;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 150%;
+                    opacity: 0.6;
+                }
+            }
+            .send-message {
+                border-radius: 8px;
+                padding: 24px 32px;
+                box-shadow: 0 2px 4px -2px rgba(16, 24, 40, 0.1), 0 4px 6px -1px rgba(16, 24, 40, 0.1);
+                background: var(--box-color);
+                &__sender {
+                    margin-bottom: 16px;
+                    display: flex;
+                    gap: 12px;
+                    align-items: center;
+                }
+                &__body {
+                    margin-bottom: 16px;
+                }
+                button {
+                    margin: auto;
+                }
             }
         }
     }

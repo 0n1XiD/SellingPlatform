@@ -1,29 +1,30 @@
-textarea{
-    font-family: 'Nunito';
-    border-radius: 5px;
-    border: 1px solid var(--additional-bg);
-    background: var(--additional-box);
+.input-label{
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 167%;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.textarea-custom{
+    font-family: var(--font-family);
+    border: 1px solid #f5f5f5;
+    border-radius: 4px;
+    background: var(--box-color);
     transition: all 0.2s ease;
     font-size: var(--font-size);
-    width: 100%;
+    width: calc(100% - 20px);
     text-align: left;
     height: 100px;
-    padding: 9px 10px;
-    color: white;
     resize: none;
+    padding: 9px 10px;
+    textarea{
+    }
     &::placeholder{
         color: #979EAC;
     }
     &:focus{
         box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.20);
     }
-}
-
-.autosize{
-    border: none;
-    font-size: var(--font-size-md);
-    border-radius: 5px;
-    background: var(--additional-box);
-    height: 46px;
-    padding: 14.5px 66px 13.5px 50px;
 }
