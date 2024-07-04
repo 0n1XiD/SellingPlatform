@@ -69,7 +69,7 @@ defineProps({
         transition: 0.3s;
         &__name {
             font-weight: 600;
-            font-size: 20px;
+            font-size: var(--font-size-xl);
             line-height: 140%;
             text-align: center;
             color: #434396;
@@ -85,7 +85,7 @@ defineProps({
         }
         &__description {
             font-weight: 500;
-            font-size: 16px;
+            font-size: var(--font-size-md);
             line-height: 150%;
             text-align: center;
             color: #7d7d82;
@@ -100,7 +100,7 @@ defineProps({
                 gap: 10px;
                 &__name {
                     font-weight: 400;
-                    font-size: 12px;
+                    font-size: var(--font-size-xs);
                     line-height: 167%;
                 }
                 &:not(:last-child) {

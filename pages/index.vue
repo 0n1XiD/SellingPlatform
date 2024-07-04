@@ -454,7 +454,7 @@ const getSwipe = ($event: any) => {
                     .description {
                         margin-bottom: 30px;
                         max-width: 392px;
-                        font-size: 18px;
+                        font-size: var(--font-size-lg);
                         line-height: 133%;
                         opacity: 0.6;
                     }
@@ -500,12 +500,12 @@ const getSwipe = ($event: any) => {
                     .name {
                         margin-bottom: 12px;
                         font-weight: 700;
-                        font-size: 18px;
+                        font-size: var(--font-size-lg);
                         line-height: 156%;
                     }
                     .description {
                         font-weight: 500;
-                        font-size: 16px;
+                        font-size: var(--font-size-md);
                         line-height: 150%;
                     }
                 }
@@ -535,13 +535,13 @@ const getSwipe = ($event: any) => {
                         gap: 18px;
                         &__name {
                             font-weight: 700;
-                            font-size: 18px;
+                            font-size: var(--font-size-lg);
                             line-height: 156%;
                         }
                     }
                     .description {
                         font-weight: 500;
-                        font-size: 16px;
+                        font-size: var(--font-size-md);
                         line-height: 150%;
                         color: var(--text-color-alternative);
                     }
@@ -569,13 +569,13 @@ const getSwipe = ($event: any) => {
                         border-radius: 4px;
                         padding: 32px;
                         font-weight: 600;
-                        font-size: 20px;
+                        font-size: var(--font-size-xl);
                         line-height: 140%;
                     }
                     .explore {
                         text-align: right;
                         font-weight: 400;
-                        font-size: 16px;
+                        font-size: var(--font-size-md);
                         line-height: 150%;
                         text-decoration: underline;
                     }
@@ -620,7 +620,7 @@ const getSwipe = ($event: any) => {
                         &__overall {
                             color: var(--text-color-link);
                             font-weight: 400;
-                            font-size: 14px;
+                            font-size: var(--font-size);
                             line-height: 143%;
                         }
                     }
@@ -642,7 +642,7 @@ const getSwipe = ($event: any) => {
                 padding: 0 32px;
                 margin-bottom: 24px;
                 font-weight: 400;
-                font-size: 16px;
+                font-size: var(--font-size-md);
                 line-height: 150%;
                 text-align: center;
             }
@@ -675,7 +675,7 @@ const getSwipe = ($event: any) => {
                 &__description {
                     max-width: 550px;
                     font-weight: 500;
-                    font-size: 16px;
+                    font-size: var(--font-size-md);
                     line-height: 150%;
                     opacity: 0.6;
                 }
@@ -918,10 +918,10 @@ const getSwipe = ($event: any) => {
                 justify-content: center;
                 &__info {
                     .title {
-                        font-size: 24px
+                        font-size: var(--font-size-extra-xl)
                     }
                     .description {
-                        font-size: 18px
+                        font-size: var(--font-size-lg)
                     }
                 }
                 button {
@@ -932,33 +932,33 @@ const getSwipe = ($event: any) => {
         }
         &__choice-learn {
             .title {
-                font-size: 24px;
+                font-size: var(--font-size-extra-xl);
                 word-wrap: break-word;
             }
         }
         &__premium-packages {
             .title {
-                font-size: 24px;
+                font-size: var(--font-size-extra-xl);
                 word-wrap: break-word;
             }
             .goods {
                 &__item {
                     .description {
-                        font-size: 14px;
+                        font-size: var(--font-size);
                     }
                 }
             }
         }
         &__reviews {
             .title {
-                font-size: 24px;
+                font-size: var(--font-size-extra-xl);
             }
             .content {
                 flex-direction: column;
                 &__most-helpful {
                     .text {
                         width: calc(100% - 64px);
-                        font-size: 14px;
+                        font-size: var(--font-size);
                     }
                 }
                 &__others {
@@ -979,11 +979,11 @@ const getSwipe = ($event: any) => {
         }
         &__pricing {
             .title {
-                font-size: 24px;
+                font-size: var(--font-size-extra-xl);
             }
             .subtitle {
                 padding: 0;
-                font-size: 14px;
+                font-size: var(--font-size);
             }
         }
         &__contacts {

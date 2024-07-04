@@ -80,7 +80,7 @@
                 margin-right: 15px;
                 .item {
                     font-weight: 400;
-                    font-size: 20px;
+                    font-size: var(--font-size-xl);
                     line-height: 171%;
                     transition: 0.3s;
                     &:hover {

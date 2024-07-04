@@ -20,7 +20,7 @@
         display: flex;
         justify-content: space-between;
         font-weight: 400;
-        font-size: 12px;
+        font-size: var(--font-size-xs);
         line-height: 167%;
         color: #a3a3a3;
     }

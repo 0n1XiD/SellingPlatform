@@ -31,7 +31,7 @@
 
 @media (max-width: 576px) {
     .swipper-custom {
-        font-size: 12px;
+        font-size: var(--font-size-xs);
         text-align: center;
         &__swipe {
             &:first-child {

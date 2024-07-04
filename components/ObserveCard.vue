@@ -82,7 +82,7 @@ defineProps({
             display: flex;
             align-items: center;
             .name {
-                font-size: 18px;
+                font-size: var(--font-size-lg);
                 font-weight: 600;
                 margin-left: 15px;
             }
@@ -90,7 +90,7 @@ defineProps({
         &__price {
             margin-bottom: 20px;
             font-weight: 600;
-            font-size: 18px;
+            font-size: var(--font-size-lg);
             color: var(--link);
         }
         &__benefits {
@@ -108,7 +108,7 @@ defineProps({
                 &__description {
                     font-family: var(--font-family);
                     font-weight: 400;
-                    font-size: 14px;
+                    font-size: var(--font-size);
                     line-height: 157%;
                     color: #7d7d82;
                 }
@@ -122,7 +122,7 @@ defineProps({
             .more {
                 cursor: pointer;
                 font-weight: 600;
-                font-size: 14px;
+                font-size: var(--font-size);
                 line-height: 157%;
                 color: var(--link);
             }
@@ -130,7 +130,7 @@ defineProps({
                 cursor: pointer;
                 color: #1c1c20;
                 font-weight: 600;
-                font-size: 14px;
+                font-size: var(--font-size);
                 line-height: 157%;
                 text-decoration: underline;
             }

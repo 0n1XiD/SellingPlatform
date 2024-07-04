@@ -40,7 +40,7 @@ defineProps({
         background: var(--box-color);
         width: 100%;
         height: 100%;
-        font-size: 14px;
+        font-size: var(--font-size);
         line-height: 143%;
         transition: 0.2s;
         &__wrapper{
@@ -55,7 +55,7 @@ defineProps({
             justify-content: space-between;
             .date {
                 font-weight: 400;
-                font-size: 12px;
+                font-size: var(--font-size-xs);
                 line-height: 167%;
                 text-align: right;
                 color: #525252;
@@ -75,7 +75,7 @@ defineProps({
         }
         &__sender {
             font-weight: 400;
-            font-size: 12px;
+            font-size: var(--font-size-xs);
             line-height: 167%;
             color: #525252;
         }
