@@ -250,11 +250,12 @@
             />
             <div
                 v-if="!addition"
+                class="cards"
             >
                 <div
                     v-for="(card, cardIndex) in pricingCards"
                     :key="`card-${cardIndex}`"
-                    class="cards"
+                    class="cards__card"
                 >
                     <pricing-card
                         :icon="card.icon"
@@ -267,11 +268,12 @@
             </div>
             <div
                 v-else
+                class="cards"
             >
                 <div
                     v-for="(card, cardIndex) in additionalPricingCards"
                     :key="`card-${cardIndex}`"
-                    class="cards"
+                    class="cards__card"
                 >
                     <pricing-card
                         :icon="card.icon"
@@ -657,6 +659,9 @@ const getSwipe = ($event: any) => {
                 align-items: center;
                 justify-content: center;
                 gap: 16px;
+                &__card {
+                    padding: 24px;
+                }
             }
         }
         &__contacts {
@@ -918,10 +923,10 @@ const getSwipe = ($event: any) => {
                 justify-content: center;
                 &__info {
                     .title {
-                        font-size: var(--font-size-extra-xl)
+                        font-size: 24px
                     }
                     .description {
-                        font-size: var(--font-size-lg)
+                        font-size: 18px
                     }
                 }
                 button {
@@ -932,33 +937,33 @@ const getSwipe = ($event: any) => {
         }
         &__choice-learn {
             .title {
-                font-size: var(--font-size-extra-xl);
+                font-size: 24px;
                 word-wrap: break-word;
             }
         }
         &__premium-packages {
             .title {
-                font-size: var(--font-size-extra-xl);
+                font-size: 24px;
                 word-wrap: break-word;
             }
             .goods {
                 &__item {
                     .description {
-                        font-size: var(--font-size);
+                        font-size: 14px;
                     }
                 }
             }
         }
         &__reviews {
             .title {
-                font-size: var(--font-size-extra-xl);
+                font-size: 24px;
             }
             .content {
                 flex-direction: column;
                 &__most-helpful {
                     .text {
                         width: calc(100% - 64px);
-                        font-size: var(--font-size);
+                        font-size: 14px;
                     }
                 }
                 &__others {
@@ -978,12 +983,14 @@ const getSwipe = ($event: any) => {
             }
         }
         &__pricing {
+            padding-left: 5px;
+            padding-right: 5px;
             .title {
-                font-size: var(--font-size-extra-xl);
+                font-size: 24px;
             }
             .subtitle {
                 padding: 0;
-                font-size: var(--font-size);
+                font-size: 14px;
             }
         }
         &__contacts {
