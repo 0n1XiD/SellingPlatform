@@ -13,7 +13,10 @@
         <div class="pricing-card__price">
             {{ price }}
         </div>
-        <div class="pricing-card__description">
+        <div
+            v-if="description"
+            class="pricing-card__description"
+        >
             {{ description }}
         </div>
         <div class="pricing-card__benefits">
@@ -47,7 +50,7 @@ defineProps({
   icon: { type: String, default: 'Plus' },
   name: { type: String, default: 'Базовый пакет' },
   price: { type: String, default: '1000₽ / мес' },
-  description: { type: String, default: 'Начало пути' },
+  description: { type: String, default: '' },
   benefits: { type: Array[String], default: [] }
 })
 </script>
@@ -109,4 +112,10 @@ defineProps({
             scale: 1.05;
         }
     }
+
+@media (max-width: 1440px){
+    .pricing-card {
+        width: auto;
+    }
+}
 </style>

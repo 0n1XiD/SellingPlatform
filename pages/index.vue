@@ -2,10 +2,26 @@
     <div class="landing-page">
         <section class="landing-page__main-frame">
             <div class="observe-cards">
-                <observe-card />
-                <observe-card />
-                <observe-card />
-                <observe-card />
+                <observe-card
+                    icon="Base"
+                    first-benefit="Доступ к более чем 50 курсам"
+                    second-benefit="Сертификаты о завершении курсов"
+                />
+                <observe-card
+                    icon="Prod"
+                    first-benefit="Доступ к более чем 150 курсам"
+                    second-benefit="Загружаемые материалы курсов"
+                />
+                <observe-card
+                    icon="Profi"
+                    first-benefit="Доступ ко всем курсам (более 300)"
+                    second-benefit="Индивидуальные сессии наставничества"
+                />
+                <observe-card
+                    icon="Corpo"
+                    first-benefit="Доступ ко всем курсам для всей команды"
+                    second-benefit="Индивидуальные тренинги и выделенный менеджер"
+                />
             </div>
             <div class="on-touch">
                 <div class="on-touch__info">
@@ -15,13 +31,15 @@
                     <div class="description">
                         Если у вас есть какие-либо предложения или вопросы, вы всегда можете обратиться к нам.
                     </div>
-                    <button-custom
-                        green
-                        width="360"
-                        height="56"
-                    >
-                        Контакты
-                    </button-custom>
+                    <nuxt-link to="#contacts">
+                        <button-custom
+                            green
+                            width="360"
+                            height="56"
+                        >
+                            Контакты
+                        </button-custom>
+                    </nuxt-link>
                 </div>
                 <svg-icon
                     class="on-touch__icon"
@@ -29,11 +47,17 @@
                     width="322"
                     height="308"
                 />
+                <svg-icon
+                    class="on-touch__icon on-touch__icon_man"
+                    icon="Man"
+                    width="322"
+                    height="308"
+                />
             </div>
         </section>
         <section class="landing-page__choice-learn">
             <h1 class="title">
-                Широкий выбор курсов <br> и персонализированное обучение
+                Широкий выбор курсов и персонализированное обучение
             </h1>
             <div class="headlines">
                 <div class="headlines__item">
@@ -226,22 +250,36 @@
             />
             <div
                 v-if="!addition"
-                class="cards"
             >
-                <pricing-card :benefits="benefits" />
-                <pricing-card :benefits="benefits" />
-                <pricing-card :benefits="benefits" />
-                <pricing-card :benefits="benefits" />
+                <div
+                    v-for="(card, cardIndex) in pricingCards"
+                    :key="`card-${cardIndex}`"
+                    class="cards"
+                >
+                    <pricing-card
+                        :icon="card.icon"
+                        :name="card.name"
+                        :price="card.price"
+                        :description="card.description"
+                        :benefits="card.benefits"
+                    />
+                </div>
             </div>
             <div
                 v-else
-                class="cards"
             >
-                <pricing-card :benefits="additionalBenefits" />
-                <pricing-card :benefits="additionalBenefits" />
-                <pricing-card :benefits="additionalBenefits" />
-                <pricing-card :benefits="additionalBenefits" />
-                <pricing-card :benefits="additionalBenefits" />
+                <div
+                    v-for="(card, cardIndex) in additionalPricingCards"
+                    :key="`card-${cardIndex}`"
+                    class="cards"
+                >
+                    <pricing-card
+                        :icon="card.icon"
+                        :name="card.name"
+                        :price="card.price"
+                        :benefits="card.benefits"
+                    />
+                </div>
             </div>
         </section>
         <section
@@ -286,21 +324,105 @@
 
 <script setup lang="ts">
 const addition = ref<Boolean>(false)
-const benefits = ref<Array[String]>(
-  [
-    'Доступ к более чем 50 курсам',
-    'Доступ к более чем 50 курсам',
-    'Доступ к более чем 50 курсам',
-    'Доступ к более чем 50 курсам'
-  ]
-)
+const pricingCards = ref<any>([
+  {
+    name: 'Базовый',
+    icon: 'Rocket',
+    price: '1000₽ / мес',
+    description: 'Начало пути',
+    benefits: [
+      'Доступ к более чем 50 курсам',
+      'Еженедельные живые сессии',
+      'Сертификаты о завершении курсов',
+      'Доступ к сообществу на форуме'
+    ]
+  },
+  {
+    name: 'Продвинутый',
+    icon: 'Quinn',
+    price: '2500₽ / мес',
+    description: 'Быстрый фидбек',
+    benefits: [
+      'Доступ к более чем 100 курсам',
+      'Ежедневные живые сессии',
+      'Сертификаты о завершении курсов',
+      'Загружаемые материалы курсов'
+    ]
+  },
+  {
+    name: 'Профессиональный',
+    icon: 'Plus',
+    price: '3500₽ / мес',
+    description: 'Полный доступ',
+    benefits: [
+      'Доступ ко всем курсам (более 300)',
+      'Индивидуальные сессии наставников',
+      'Сертификаты о завершении курсов',
+      'Сессии карьерного консультирования'
+    ]
+  },
+  {
+    name: 'Корпоративный',
+    icon: 'HighVolume',
+    price: 'до 15000₽ / мес',
+    description: 'Для команд',
+    benefits: [
+      'Доступ ко всем курсам всей команде',
+      'Индивидуальные тренинги',
+      'Выделенный менеджер по аккаунту',
+      'Индивидуальный подбор цены'
+    ]
+  }
+])
 
-const additionalBenefits = ref<Array[String]>(
-  [
-    'Доступ к материалам',
-    'Пробные экзамены'
-  ]
-)
+const additionalPricingCards = ref<any>([
+  {
+    name: 'Изучение языков',
+    icon: 'Rocket',
+    price: '1500₽ / мес',
+    benefits: [
+      'Доступ к языковым курсам',
+      'Практические занятия'
+    ]
+  },
+  {
+    name: 'Подготовка к экзаменам',
+    icon: 'Quinn',
+    price: '1500₽ / мес',
+    benefits: [
+      'Доступ к языковым курсам',
+      'Практические занятия'
+    ]
+  },
+  {
+    name: 'Оценка навыков',
+    icon: 'Plus',
+    price: '1500₽ / мес',
+    description: 'Полный доступ',
+    benefits: [
+      'Доступ к языковым курсам',
+      'Практические занятия'
+    ]
+  },
+  {
+    name: 'Карьерная поддержка',
+    icon: 'HighVolume',
+    price: '1500₽ / мес',
+    benefits: [
+      'Доступ к языковым курсам',
+      'Практические занятия'
+    ]
+  },
+  {
+    name: 'Создание контента',
+    icon: 'Plus',
+    price: '1500₽ / мес',
+    benefits: [
+      'Доступ к языковым курсам',
+      'Практические занятия'
+    ]
+  }
+])
 
 const getSwipe = ($event: any) => {
   addition.value = !$event
@@ -335,6 +457,11 @@ const getSwipe = ($event: any) => {
                         font-size: 18px;
                         line-height: 133%;
                         opacity: 0.6;
+                    }
+                }
+                &__icon {
+                    &_man {
+                        display: none;
                     }
                 }
             }
@@ -554,6 +681,8 @@ const getSwipe = ($event: any) => {
                 }
             }
             .send-message {
+                max-width: 820px;
+                width: 100%;
                 border-radius: 8px;
                 padding: 24px 32px;
                 box-shadow: 0 2px 4px -2px rgba(16, 24, 40, 0.1), 0 4px 6px -1px rgba(16, 24, 40, 0.1);
@@ -561,8 +690,15 @@ const getSwipe = ($event: any) => {
                 &__sender {
                     margin-bottom: 16px;
                     display: flex;
-                    gap: 12px;
+                    gap: 55px;
                     align-items: center;
+                    width: 100%;
+                    .name {
+                        width: 44%;
+                    }
+                    .email {
+                        width: 47%;
+                    }
                 }
                 &__body {
                     margin-bottom: 16px;
@@ -608,6 +744,17 @@ const getSwipe = ($event: any) => {
             .title {
                 text-align: center;
             }
+            .goods {
+                flex-direction: column;
+                &__item {
+                    .header {
+                        flex-direction: column;
+                    }
+                    .description {
+                        text-align: center;
+                    }
+                }
+            }
         }
         &__reviews {
             .title {
@@ -629,11 +776,233 @@ const getSwipe = ($event: any) => {
                 }
             }
         }
+        &__pricing {
+            .cards {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+        }
         &__contacts {
             flex-direction: column;
             gap: 60px;
+        }
+    }
+}
+
+@media (max-width: 956px){
+    .landing-page{
+        &__main-frame {
+            position: relative;
+            overflow: hidden;
+            .observe-cards {
+                position: relative;
+                z-index: 5;
+            }
+            .on-touch {
+                flex-direction: column;
+                justify-content: center;
+                &__info {
+                    .title {
+                        text-align: center;
+                    }
+                    .description {
+                        text-align: center;
+                    }
+                }
+                &__icon {
+                    position: absolute;
+                    bottom: 360px;
+                    right: -125px;
+                    z-index: 1;
+                    &_man {
+                        display: block;
+                        position: absolute;
+                        bottom: 0px;
+                        left: -125px;
+                        z-index: 1;
+                    }
+                }
+                button {
+                    margin: auto;
+                }
+            }
+        }
+        &__contacts {
             .send-message {
-                margin-left: 35px;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .landing-page{
+        &__main-frame {
+            padding: 28px 39px 80px 39px;;
+            position: relative;
+            overflow: hidden;
+            .observe-cards {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .on-touch {
+                flex-direction: column;
+                justify-content: center;
+                &__info {
+                    .title {
+                        text-align: center;
+                    }
+                    .description {
+                        text-align: center;
+                    }
+                }
+                &__icon {
+                    display: none;
+                }
+                button {
+                    margin: auto;
+                }
+            }
+        }
+        &__reviews {
+            .title {
+                text-align: center;
+            }
+            .content {
+                flex-direction: column;
+                &__most-helpful {
+                    .text {
+                        width: calc(100% - 64px);
+                    }
+                }
+                &__others {
+                    padding-right: 0px;
+                    .slider {
+                        &__left-arrow, &__right-arrow {
+                            display: none;
+                        }
+                    }
+                    .additional {
+                        padding: 0;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+        &__pricing {
+            .cards {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+        &__contacts {
+            .info {
+                &__title {
+                    text-align: center;
+                }
+                &__description {
+                    text-align: center;
+                }
+            }
+            .send-message {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px){
+    .landing-page{
+        &__main-frame {
+            .on-touch {
+                flex-direction: column;
+                justify-content: center;
+                &__info {
+                    .title {
+                        font-size: 24px
+                    }
+                    .description {
+                        font-size: 18px
+                    }
+                }
+                button {
+                    margin: auto;
+                    width: 200px !important;
+                }
+            }
+        }
+        &__choice-learn {
+            .title {
+                font-size: 24px;
+                word-wrap: break-word;
+            }
+        }
+        &__premium-packages {
+            .title {
+                font-size: 24px;
+                word-wrap: break-word;
+            }
+            .goods {
+                &__item {
+                    .description {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        &__reviews {
+            .title {
+                font-size: 24px;
+            }
+            .content {
+                flex-direction: column;
+                &__most-helpful {
+                    .text {
+                        width: calc(100% - 64px);
+                        font-size: 14px;
+                    }
+                }
+                &__others {
+                    padding-right: 0px;
+                    .slider {
+                        &__left-arrow, &__right-arrow {
+                            display: none;
+                        }
+                    }
+                    .additional {
+                        justify-content: center;
+                        &__overall {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        &__pricing {
+            .title {
+                font-size: 24px;
+            }
+            .subtitle {
+                padding: 0;
+                font-size: 14px;
+            }
+        }
+        &__contacts {
+            .info {
+                &__title {
+                    text-align: center;
+                }
+                &__description {
+                    text-align: center;
+                }
+            }
+            .send-message {
+                &__sender {
+                    width: 105%;
+                    gap: 0;
+                    .name {
+                        margin-right: 12px;
+                    }
+                }
             }
         }
     }

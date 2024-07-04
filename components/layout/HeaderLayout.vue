@@ -42,6 +42,13 @@
                     Начните сейчас
                 </button-custom>
             </div>
+            <div class="menu">
+                <svg-icon
+                    icon="Kebab"
+                    width="24"
+                    height="24"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -92,6 +99,28 @@
                 margin-right: 17px;
             }
         }
+        .menu {
+            display: none;
+        }
     }
  }
+
+ @media (max-width: 1040px){
+    .header-layout {
+        &__content {
+            .right-content {
+                display: none;
+            }
+            .menu {
+                display: block;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .header-layout {
+        padding: 30px 39px 0 39px;
+    }
+}
 </style>

@@ -24,4 +24,19 @@
         line-height: 167%;
         color: #a3a3a3;
     }
+
+@media (max-width: 768px){
+    .footer-layout {
+        padding: 80px 39px 80px 39px;
+    }
+}
+
+@media (max-width: 576px){
+    .footer-layout {
+        text-align: center;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+    }
+}
 </style>

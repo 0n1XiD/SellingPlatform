@@ -18,23 +18,23 @@
                 <div class="item">
                     <svg-icon
                         class="item__logo"
-                        :icon="icon"
+                        icon="Mobile"
                         width="18"
                         height="18"
                     />
                     <div class="item__description">
-                        Доступ к более чем 50 курсам
+                        {{ firstBenefit }}
                     </div>
                 </div>
                 <div class="item">
                     <svg-icon
                         class="item__logo"
-                        :icon="icon"
+                        icon="Dev"
                         width="18"
                         height="18"
                     />
                     <div class="item__description">
-                        Доступ к более чем 50 курсам
+                        {{ secondBenefit }}
                     </div>
                 </div>
             </div>
@@ -58,10 +58,11 @@
 
 <script setup lang="ts">
 defineProps({
-  icon: { type: String, default: 'Plus' },
+  icon: { type: String, default: 'Base' },
   name: { type: String, default: 'Базовый пакет' },
-  price: { type: String, default: '1000₽ / мес' }
-
+  price: { type: String, default: '1000₽ / мес' },
+  firstBenefit: { type: String, default: 'Доступ к более чем 50 курсам' },
+  secondBenefit: { type: String, default: 'Сертификаты о завершении курсов' }
 })
 </script>
 
@@ -138,11 +139,14 @@ defineProps({
             scale: 1.05;
         }
     }
-@media (max-width: 1440px){
-
-}
 
 @media (max-width: 768px){
-
+    .observe-card {
+        &__footer {
+            .contact-us {
+                text-align: right;
+            }
+        }
+    }
 }
 </style>

@@ -8,24 +8,9 @@
 }
 
 .input-custom{
-    position: relative;
-    min-width: 242px;
-    width: fit-content;
     transition: all 0.5 ease-in;
-    .icon{
-        position: absolute;
-        top: 50%;
-        left: 40%;
-        transform: translate(-60%, -50%);
-        transition: all 0.5 ease-in;
-        &_search{
-            &.input-focused, &.input-active{
-                left: 20px !important;
-            }
-        }
-    }
     .input{
-        width: 350px;
+        width: calc(100% - 20px);
         font-family: var(--font-family);
         font-size: var(--font-size);
         color: var(--text-color);

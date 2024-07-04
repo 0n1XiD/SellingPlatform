@@ -83,9 +83,4 @@ defineProps({
             scale: 1.05;
         }
     }
-@media (max-width: 1440px){
-    .review-card {
-        
-    }
-}
 </style>
