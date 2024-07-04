@@ -1,7 +1,7 @@
 // main colors
 $white: #ffffff;
-$black: #0F0E0E;
-$gray: #218AEF;
+$black: #1c1c20;
+$gray:  #7d7d82;
 $gray-two: #858487;
 $blue: #1C6090;
 $blue-two: #434396;
@@ -12,7 +12,7 @@ $white-blue: #BAC2E0;
 $light-blue: #048FDD;
 $light-gray: #BBBFCD;
 $light-purple: #7444A5;
-
+$light-green: #34cca9;
 
 // dark colors
 $dark: linear-gradient(180deg, #181820 0%, #161616 100%);
@@ -28,5 +28,5 @@ $dark-purple: #120D34;
 
 // gradients
 
-$dark-to-light-purple: linear-gradient(180deg, #291a7a 0%, #3d2aa4 100%);
-$light-to-dark-purple: linear-gradient(180deg, #3d2aa4 0%, #291a7a 100%);
+$dark-to-light-purple: linear-gradient(180deg, #2B1B7D 0%, #3d2aa4 100%);
+$light-to-dark-purple: linear-gradient(180deg, #3d2aa4 0%, #2B1B7D 100%);

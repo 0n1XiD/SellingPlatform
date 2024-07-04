@@ -1,12 +1,15 @@
-@import '../vendor/colors.scss';
+@import './vendor/colors.scss';
+@import './vendor/fonts.scss';
 
 :root {
     // Text
     --text-color: #{$black};
+    --text-color-link: #{$white};
     --text-color-primary: #{$blue-two};
     --text-color-alternative: #{$gray};
     --text-inactive-color: #{$gray-two};
     --link: #{$light-blue};
+    --success: #{$light-green};
 
     // Fonts
     --font-weight-extrabold: 800;
@@ -36,12 +39,12 @@
     --font-family: 'Montserrat', sans-serif;
 
     // Background
-    --bg-color: #{$white};
-    --box-color: #{$purple};
-    --box-color-gradient: #{$dark-to-light-purple};
-    --box-color-gradient-reverse: #{$light-to-dark-purple};
-    --box-color-light: #{$dark-blue-three};
-    --box-color-dark: #{$dark-purple};
+    --bg-color: #{$purple};
+    --bg-color-gradient: #{$dark-to-light-purple};
+    --bg-color-gradient-reverse: #{$light-to-dark-purple};
+    --bg-color-light: #{$dark-blue-three};
+    --bg-color-dark: #{$dark-purple};
+    --box-color: #{$white};
 
 
     // Additional elemets

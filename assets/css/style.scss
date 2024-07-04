@@ -1,7 +1,4 @@
-    // Vendor
-@import "./vendor/_colors.scss";
-@import "./vendor/_fonts.scss";
-@import "./vendor/_reset.scss";
+@import "./variables.scss";
 
 * {
     scroll-behavior: smooth;
@@ -20,6 +17,8 @@
 
 html,
 body {
+    margin: 0;
+    padding: 0;
     background: var(--bg-color);
     font-family: var(--font-family);
     font-weight: var(--font-weight-regular);
@@ -28,8 +27,13 @@ body {
     color: var(--text-color);
 }
 
+section {
+    padding: 80px 119px 80px 134px;
+}
+
 a {
     text-decoration: none;
+    color: var(--text-color-link);
 }
 
 .default-wrapper {

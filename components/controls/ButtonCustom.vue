@@ -7,6 +7,10 @@
         :form="form"
         :name="name"
         :type="type"
+        :style="{
+            'width': `${width}px`,
+            'height': `${height}px`
+        }"
 
         @click="handleClick($event)"
     >
@@ -35,6 +39,8 @@ const props = defineProps({
   name: { type: String, default: null },
   type: { type: String as () => 'button' | 'submit' | 'reset' | undefined, default: 'button' },
   value: { type: [String, Number], default: null },
+  width: { type: [Number, String], default: '150' },
+  height: { type: [Number, String], default: '30' },
 
   // Custom Button Props
   bError: { type: Boolean, default: false },
@@ -47,11 +53,8 @@ const props = defineProps({
   borderType: { type: Boolean, default: false },
 
   // Button Colors
-  darkPurple: { type: Boolean, default: false },
-  darkGreen: { type: Boolean, default: false },
-  darkRed: { type: Boolean, default: false },
-  darkBlue: { type: Boolean, default: false },
-  lightGray: { type: Boolean, default: false }
+  white: { type: Boolean, default: false },
+  green: { type: Boolean, default: false }
 })
 
 const setType = computed(() => {
@@ -64,17 +67,11 @@ const setType = computed(() => {
 })
 
 const setColor = computed(() => {
-  const typeButton = props.darkPurple
-    ? 'dark_purple'
-    : props.darkGreen
-      ? 'dark_green'
-      : props.darkRed
-        ? 'dark_red'
-        : props.darkBlue
-          ? 'dark_blue'
-          : props.lightGray
-            ? 'light_gray'
-            : 'dark_purple'
+  const typeButton = props.white
+    ? 'white'
+    : props.green
+      ? 'green'
+      : 'white'
   return 'button_' + typeButton
 })
 
