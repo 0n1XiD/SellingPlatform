@@ -195,6 +195,7 @@
                             icon="ArrowButton"
                             width="30"
                             heigth="30"
+                            @click="changePage('left')"
                         />
                         <div class="slider__list">
                             <review-card />
@@ -209,16 +210,19 @@
                             icon="ArrowButton"
                             width="30"
                             heigth="30"
+                            @click="changePage('right')"
                         />
                     </div>
                     <div class="additional">
                         <div class="additional__pages">
-                            <div class="page page_active" />
-                            <div class="page" />
-                            <div class="page" />
+                            <div
+                                v-for="(page, index) in 3"
+                                :key="index"
+                                :class="{ 'page': true, 'page_active': index === activePageIndex }"
+                            />
                         </div>
                         <div class="additional__overall">
-                            Рейтинг 5 / 5 на основании 5 отзывов.
+                            Рейтинг 5 / 5 на основании 6 отзывов.
                         </div>
                     </div>
                 </div>
@@ -327,6 +331,7 @@ export interface SubscriptionPackage {
   icon: string;
   price: string;
   benefits: string[];
+  description?: string;
 }
 
 const observeCards = ref<Array<SubscriptionPackage>>([
@@ -431,7 +436,7 @@ const additionalPricingCards = ref<Array<SubscriptionPackage>>([
     id: 1,
     name: 'Изучение языков',
     icon: 'Rocket',
-    price: '1500₽ / мес',
+    price: '1501₽ / мес',
     benefits: [
       'Доступ к языковым курсам',
       'Практические занятия'
@@ -441,47 +446,57 @@ const additionalPricingCards = ref<Array<SubscriptionPackage>>([
     id: 2,
     name: 'Подготовка к экзаменам',
     icon: 'Quinn',
-    price: '1500₽ / мес',
+    price: '1502₽ / мес',
     benefits: [
-      'Доступ к языковым курсам',
-      'Практические занятия'
+      'Доступ к материалам',
+      'Пробные экзамены'
     ]
   },
   {
     id: 3,
     name: 'Оценка навыков',
     icon: 'Plus',
-    price: '1500₽ / мес',
+    price: '1503₽ / мес',
     description: 'Полный доступ',
     benefits: [
-      'Доступ к языковым курсам',
-      'Практические занятия'
+      'Ежемесячные оценки',
+      'Персональные отчеты'
     ]
   },
   {
     id: 4,
     name: 'Карьерная поддержка',
     icon: 'HighVolume',
-    price: '1500₽ / мес',
+    price: '1504₽ / мес',
     benefits: [
-      'Доступ к языковым курсам',
-      'Практические занятия'
+      'Создание резюме',
+      'Помощь в трудоустройстве'
     ]
   },
   {
     id: 5,
     name: 'Создание контента',
     icon: 'Plus',
-    price: '1500₽ / мес',
+    price: '1505₽ / мес',
     benefits: [
-      'Доступ к языковым курсам',
-      'Практические занятия'
+      'Доступ к инструментам',
+      'Ежемесячные вебинары'
     ]
   }
 ])
 
 const getSwipe = ($event: any) => {
   addition.value = !$event
+}
+
+const activePageIndex = ref<Number>(0)
+
+const changePage = (direction: String) => {
+  if (direction === 'left') {
+    activePageIndex.value = Math.max(activePageIndex.value - 1, 0)
+  } else if (direction === 'right') {
+    activePageIndex.value = Math.min(activePageIndex.value + 1, 2)
+  }
 }
 </script>
 
@@ -646,10 +661,18 @@ const getSwipe = ($event: any) => {
                         gap: 20px;
                         &__left-arrow {
                             cursor: pointer;
+                            transition: 0.3s;
+                            &:hover {
+                                scale: 1.1;
+                            }
                         }
                         &__right-arrow {
                             cursor: pointer;
                             rotate: 180deg;
+                            transition: 0.3s;
+                            &:hover {
+                                scale: 1.1;
+                            }
                         }
                         &__list {
                             display: flex;

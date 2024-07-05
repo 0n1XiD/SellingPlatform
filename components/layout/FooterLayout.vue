@@ -27,7 +27,7 @@
 
 @media (max-width: 768px){
     .footer-layout {
-        padding: 80px 39px 80px 39px;
+        padding: 80px 39px;
     }
 }
 

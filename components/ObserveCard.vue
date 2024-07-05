@@ -96,7 +96,7 @@ defineProps({
                 display: flex;
                 flex-wrap: nowrap;
                 gap: 11px;
-                color: var(----text-color-alternative);
+                color: var(--text-color-alternative);
                 &:last-child {
                     border-bottom: 1px solid rgba(245, 245, 245, 0.5);
                 }
@@ -113,7 +113,7 @@ defineProps({
             flex: 1;
             padding-top: 12px;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: space-between;
             .more {
                 cursor: pointer;
