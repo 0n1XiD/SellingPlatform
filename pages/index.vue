@@ -197,12 +197,17 @@
                             heigth="30"
                             @click="changePage('left')"
                         />
-                        <div class="slider__list">
-                            <review-card />
+                        <div
+                            ref="slider"
+                            class="slider__list"
+                            @touchmove="handleTouchMove"
+                        >
                             <review-card
-                                topic="Другой отзыв на платформу"
-                                :date="new Date(`05/05/2025`)"
-                                name="Me"
+                                v-for="review in paginatedReviews"
+                                :key="review.id"
+                                :topic="review.topic"
+                                :date="review.date"
+                                :name="review.name"
                             />
                         </div>
                         <svg-icon
@@ -216,13 +221,13 @@
                     <div class="additional">
                         <div class="additional__pages">
                             <div
-                                v-for="(page, index) in 3"
+                                v-for="(page, index) in pageCount"
                                 :key="index"
                                 :class="{ 'page': true, 'page_active': index === activePageIndex }"
                             />
                         </div>
                         <div class="additional__overall">
-                            Рейтинг 5 / 5 на основании 6 отзывов.
+                            Рейтинг 5 / 5 на основании {{ reviews.length }} отзывов.
                         </div>
                     </div>
                 </div>
@@ -325,6 +330,13 @@
 <script setup lang="ts">
 const addition = ref<Boolean>(false)
 
+export interface Review {
+  id: number;
+  topic: string;
+  date: Date;
+  name: string;
+}
+
 export interface SubscriptionPackage {
   id: number;
   name: string;
@@ -333,6 +345,18 @@ export interface SubscriptionPackage {
   benefits: string[];
   description?: string;
 }
+
+const reviews = ref<Array<Review>>([
+  { id: 1, topic: 'Первый отзыв на платформу', date: new Date('2025-11-11'), name: 'Кирилл' },
+  { id: 2, topic: 'Другой отзыв', date: new Date('2022-10-05'), name: 'Артём' },
+  { id: 3, topic: 'Третий отзыв на платформу', date: new Date('2024-02-01'), name: 'Алексей' },
+  { id: 4, topic: 'Еще один отзыв на платформу', date: new Date('2023-01-12'), name: 'Мария' },
+  { id: 5, topic: 'Пятый отзыв на платформу', date: new Date('2025-11-11'), name: 'Анастасия' },
+  { id: 6, topic: 'Другой отзыв', date: new Date('2022-10-05'), name: 'Григорий' },
+  { id: 7, topic: 'Седьмой отзыв на платформу', date: new Date('2025-11-11'), name: 'Ангелина' },
+  { id: 8, topic: 'Следующий отзыв', date: new Date('2022-10-05'), name: 'Николай' },
+  { id: 9, topic: 'Последний отзыв', date: new Date('2024-03-08'), name: 'Елизавета' }
+])
 
 const observeCards = ref<Array<SubscriptionPackage>>([
   {
@@ -490,12 +514,32 @@ const getSwipe = ($event: any) => {
 }
 
 const activePageIndex = ref<Number>(0)
+const pageCount = ref<Number>(Math.ceil(reviews.value.length / 2))
 
-const changePage = (direction: String) => {
+const changePage = (direction: string) => {
   if (direction === 'left') {
-    activePageIndex.value = Math.max(activePageIndex.value - 1, 0)
+    activePageIndex.value = activePageIndex.value === 0 ? pageCount.value - 1 : activePageIndex.value - 1
   } else if (direction === 'right') {
-    activePageIndex.value = Math.min(activePageIndex.value + 1, 2)
+    activePageIndex.value = activePageIndex.value === pageCount.value - 1 ? 0 : activePageIndex.value + 1
+  }
+}
+
+const paginatedReviews = computed(() => {
+  const startIndex = activePageIndex.value * 2
+  return reviews.value.slice(startIndex, startIndex + 2)
+})
+
+const slider = ref(null)
+
+const handleTouchMove = ($event: any) => {
+  const touch = $event.touches[0]
+  const sliderRect = slider.value.getBoundingClientRect()
+  const x = touch.clientX - sliderRect.left
+
+  if (x < sliderRect.width / 2) {
+    changePage('left')
+  } else {
+    changePage('right')
   }
 }
 </script>
