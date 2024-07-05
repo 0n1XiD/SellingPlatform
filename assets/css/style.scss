@@ -26,6 +26,10 @@ body {
     color: var(--text-color);
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 section {
     padding: 80px 119px 80px 134px;
 }

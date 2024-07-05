@@ -65,33 +65,35 @@
                 v-if="isMenuOpen"
                 class="mobile-menu"
             >
-                <div class="mobile-menu__content">
-                    <nuxt-link
-                        to="#reviews"
-                        @click="toggleMenu()"
-                    >
-                        Отзывы
-                    </nuxt-link>
-                    <nuxt-link
-                        to="#pricing"
-                        @click="toggleMenu()"
-                    >
-                        Цены
-                    </nuxt-link>
-                    <nuxt-link
-                        to="#contacts"
-                        @click="toggleMenu()"
-                    >
-                        Контакты
-                    </nuxt-link>
-                    <button-custom
-                        width="147"
-                        height="40"
-                        purple
-                        @click="toggleMenu()"
-                    >
-                        Начать сейчас
-                    </button-custom>
+                <div class="mobile-menu__wrapper">
+                    <div class="mobile-menu__content">
+                        <nuxt-link
+                            to="#reviews"
+                            @click="toggleMenu()"
+                        >
+                            Отзывы
+                        </nuxt-link>
+                        <nuxt-link
+                            to="#pricing"
+                            @click="toggleMenu()"
+                        >
+                            Цены
+                        </nuxt-link>
+                        <nuxt-link
+                            to="#contacts"
+                            @click="toggleMenu()"
+                        >
+                            Контакты
+                        </nuxt-link>
+                        <button-custom
+                            width="147"
+                            height="40"
+                            purple
+                            @click="toggleMenu()"
+                        >
+                            Начать сейчас
+                        </button-custom>
+                    </div>
                 </div>
             </div>
         </transition>
@@ -105,6 +107,14 @@ const isMenuOpen = ref(false)
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
+
+watch(isMenuOpen, (newValue) => {
+  if (newValue) {
+    document.body.classList.add('no-scroll')
+  } else {
+    document.body.classList.remove('no-scroll')
+  }
+})
 </script>
 
 <style lang="scss">
@@ -193,11 +203,15 @@ const toggleMenu = () => {
         top: 68px;
         left: 0;
         width: 100%;
-        height: fit-content;
-        background-color: #fff;
+        height: 100%;
         z-index: 1000;
-        box-shadow: -2px 0 0 rgba(0, 0, 0, 0.1);
-
+        background-color: rgba(0, 0, 0, 0.5);
+        &__wrapper {
+            background-color: #fff;
+            height: fit-content;
+            box-shadow: -2px 0 0 rgba(0, 0, 0, 0.1);
+            z-index: 1100;
+        }
         &__content {
             display: flex;
             flex-direction: column;
@@ -244,7 +258,7 @@ const toggleMenu = () => {
     padding: 30px 39px 5px 39px;
 
     .mobile-menu {
-        top: 55px;
+        top: 59px;
         &__content {
           padding-left: 39px;
           padding-right: 39px;
