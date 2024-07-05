@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import '@css/controls/input-custom.scss'
+import '~/assets/css/controls/input-custom.scss'
 
 const props = defineProps({
 // Default Input Props

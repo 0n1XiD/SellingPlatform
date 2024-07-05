@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import '@css/controls/swipper-custom.scss'
+import '~/assets/css/controls/swipper-custom.scss'
 
 interface swipeItem {
     icon?: string,

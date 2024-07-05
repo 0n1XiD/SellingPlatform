@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import '@css/controls/button-custom.scss'
+import '~/assets/css/controls/button-custom.scss'
 
 const props = defineProps({
   // Default Button Props

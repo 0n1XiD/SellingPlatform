@@ -23,6 +23,13 @@ export default defineNuxtConfig({
     '@nuxtjs/eslint-module'
   ],
   css: ['@/assets/css/style.scss'],
+  build: {
+    loaders: {
+      scss: {
+        implementation: require('sass')
+      }
+    }
+  },
   plugins: [],
   alias: {
     '@svg': fileURLToPath(new URL('./assets/svg', import.meta.url)),

@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import '@css/controls/textarea-custom.scss'
+import '~/assets/css/controls/textarea-custom.scss'
 
 defineProps({
   // Default Input Props
